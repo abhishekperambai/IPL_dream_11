@@ -5,10 +5,8 @@ from batsmen import Batsman
 from bowlers import Bowlers
 from fielders import Fielding
 
-parser = argparse.ArgumentParser()
-parser.add_argument("-input_path",required=True)
-parser.add_argument("-output_path",required=True)
-args = parser.parse_args()
+ip = str(pathlib.Path(__file__).parent/"data")
+op = str(pathlib.Path(__file__).parent)
 
 
 def run_model(ip,op):
@@ -55,7 +53,5 @@ def run_model(ip,op):
     final_data.to_csv(op_path/"career_scores_dream11.csv",sep="|",index=False)
     
 if __name__=="__main__":
-    ip = args.input_path
-    op = args.output_path #r"E:\Co-Learning Lounge\Actual Data\final_test\IPL_datasets"
     run_model(ip,op)
 
